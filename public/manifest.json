@@ -1,11 +1,26 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Chessinations",
+  "name": "Chessinations - Play Chess Variants",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "icon/chessinations-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/chessinations-24.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/chessinations-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "icon/chessinations-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
