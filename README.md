@@ -1,30 +1,5 @@
 ## 👉 Get Started
 
-Install dependencies
-
-```
-npm install
-```
-
-Update your `.env` file with values for each environment variable
-
-```
-API_KEY=AIzaSyBkkFF0XhNZeWuDmOfEhsgdfX1VBG7WTas
-etc ...
-```
-
-Install the Vercel CLI
-
-```
-npm install -g vercel
-```
-
-Link your codebase to a Vercel project
-
-```
-vercel
-```
-
 Run the development server
 
 ```
@@ -34,6 +9,11 @@ vercel dev
 When the above command completes you'll be able to view your website at `http://localhost:3000`.
 
 _Note: You can run just the front-end with `npm run start`, but `vercel dev` also handles running your API endpoints (located in the `/api` directory)._
+
+Notes to deal with:
+- Production: https://chessinations.vercel.app
+- Run `vercel --prod` to overwrite later (https://vercel.link/2F).
+- To change the domain or build command, go to https://vercel.com/nicogreenarry/chessinations/settings
 
 ## 🥞 Stack
 
