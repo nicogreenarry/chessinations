@@ -96,7 +96,7 @@ function useQuery(query) {
         setState(initialState);
       }
     }
-  }, [queryCached]);
+  }, [queryCached]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return state;
 }

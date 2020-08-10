@@ -4,7 +4,7 @@ import { getStripePriceId } from "./prices";
 
 let stripe;
 // Load the Stripe script
-const stripePromise = loadStripe(
+loadStripe(
   process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 ).then((stripeInstance) => {
   // Set stripe so all functions below have it in scope

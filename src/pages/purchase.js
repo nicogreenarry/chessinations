@@ -17,7 +17,7 @@ function PurchasePage(props) {
       // Otherwise go to checkout
       redirectToCheckout(router.query.plan);
     }
-  }, [auth.user.planId]);
+  }, [auth.user.planId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <PageLoader></PageLoader>;
 }

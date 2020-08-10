@@ -18,7 +18,7 @@ function SettingsBilling(props) {
       // purchase a plan
       router.push("/pricing");
     }
-  }, [auth.user.planId]);
+  }, [auth.user.planId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <PageLoader
