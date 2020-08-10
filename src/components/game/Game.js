@@ -1,10 +1,12 @@
 import Chessboard from 'chessboardjsx';
-import React from 'react';
+import React, { useReducer } from 'react';
 
-import { standardStartPosition } from '../services/chess/boardSetup';
+import { gameStateReducer, initialGameState } from './gameStateReducer';
 
 function Game(props) {
-  return <Chessboard position={standardStartPosition} />;
+  const [gameState, gameDispatch] = useReducer(gameStateReducer, initialGameState);
+
+  return <Chessboard position={gameState.position} />;
 }
 
 export default Game;
