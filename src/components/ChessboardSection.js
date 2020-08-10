@@ -1,9 +1,9 @@
 import Chessboard from 'chessboardjsx';
-import React from "react";
-import Container from "react-bootstrap/Container";
+import React from 'react';
+import Container from 'react-bootstrap/Container';
 
-import Section from "./Section";
-import SectionHeader from "./SectionHeader";
+import Section from './Section';
+import SectionHeader from './SectionHeader';
 
 function HeroSection(props) {
   return (
@@ -21,7 +21,7 @@ function HeroSection(props) {
           size={1}
           spaced={true}
         ></SectionHeader>
-        <Chessboard position="start"/>
+        <Chessboard position="start" />
       </Container>
     </Section>
   );
