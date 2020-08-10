@@ -1,5 +1,5 @@
 import React from 'react';
-import GameSection from './../components/GameSection';
+import GameSection from './../components/game/GameSection';
 import HeroSection from './../components/HeroSection';
 import FeaturesSection from './../components/FeaturesSection';
 import ClientsSection from './../components/ClientsSection';

@@ -2,8 +2,8 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 
 import Game from './Game';
-import Section from './Section';
-import SectionHeader from './SectionHeader';
+import Section from '../Section';
+import SectionHeader from '../SectionHeader';
 
 function GameSection(props) {
   return (
