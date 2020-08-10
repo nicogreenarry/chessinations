@@ -1,4 +1,5 @@
 import React from "react";
+import ChessboardSection from "./../components/ChessboardSection";
 import HeroSection from "./../components/HeroSection";
 import FeaturesSection from "./../components/FeaturesSection";
 import ClientsSection from "./../components/ClientsSection";
@@ -27,6 +28,15 @@ function IndexPage(props) {
           router.push("/pricing");
         }}
       ></HeroSection>
+      <ChessboardSection
+        bg="light"
+        textColor="dark"
+        size="md"
+        bgImage=""
+        bgImageOpacity={1}
+        title="Play chess"
+        subtitle=""
+      ></ChessboardSection>
       <FeaturesSection
         bg="white"
         textColor="dark"
