@@ -1,22 +1,22 @@
-const firebaseAdmin = require("./_firebase");
+const firebaseAdmin = require('./_firebase');
 
 const firestore = firebaseAdmin.firestore();
 
 // Update an existing user
 function updateUser(uid, data) {
-  return firestore.collection("users").doc(uid).update(data);
+  return firestore.collection('users').doc(uid).update(data);
 }
 
 // Get user by uid
 function getUser(uid) {
-  return firestore.collection("users").doc(uid).get().then(format);
+  return firestore.collection('users').doc(uid).get().then(format);
 }
 
 // Get user by stripeCustomerId
 function getUserByCustomerId(customerId) {
   return firestore
-    .collection("users")
-    .where("stripeCustomerId", "==", customerId)
+    .collection('users')
+    .where('stripeCustomerId', '==', customerId)
     .get()
     .then(format)
     .then((docs) => (docs ? docs[0] : null)); // Get first result
