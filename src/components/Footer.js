@@ -1,9 +1,11 @@
 import React from "react";
-import Section from "./Section";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
 import { Link } from "./../util/router.js";
+
+import Section from "./Section";
 import "./Footer.scss";
 
 function Footer(props) {
