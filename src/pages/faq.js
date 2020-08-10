@@ -1,7 +1,7 @@
-import React from "react";
-import FaqSection from "./../components/FaqSection";
-import CtaSection from "./../components/CtaSection";
-import { useRouter } from "./../util/router.js";
+import React from 'react';
+import FaqSection from './../components/FaqSection';
+import CtaSection from './../components/CtaSection';
+import { useRouter } from './../util/router.js';
 
 function FaqPage(props) {
   const router = useRouter();
@@ -29,7 +29,7 @@ function FaqPage(props) {
         buttonColor="light"
         buttonOnClick={() => {
           // Navigate to pricing page
-          router.push("/pricing");
+          router.push('/pricing');
         }}
       ></CtaSection>
     </>

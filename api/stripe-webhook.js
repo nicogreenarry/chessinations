@@ -1,6 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const getRawBody = require("raw-body");
-const { updateUserByCustomerId } = require("./_db.js");
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const getRawBody = require('raw-body');
+const { updateUserByCustomerId } = require('./_db.js');
 
 export default async (req, res) => {
   const headers = req.headers;
@@ -10,7 +10,7 @@ export default async (req, res) => {
 
     const stripeEvent = stripe.webhooks.constructEvent(
       rawBody,
-      headers["stripe-signature"],
+      headers['stripe-signature'],
       process.env.STRIPE_WEBHOOK_SECRET
     );
 
@@ -20,11 +20,9 @@ export default async (req, res) => {
     const object = stripeEvent.data.object;
 
     switch (stripeEvent.type) {
-      case "checkout.session.completed":
+      case 'checkout.session.completed':
         // Fetch subscription
-        const subscription = await stripe.subscriptions.retrieve(
-          object.subscription
-        );
+        const subscription = await stripe.subscriptions.retrieve(object.subscription);
 
         // Update the current user
         await updateUserByCustomerId(object.customer, {
@@ -37,27 +35,27 @@ export default async (req, res) => {
 
         break;
 
-      case "invoice.payment_succeeded":
+      case 'invoice.payment_succeeded':
         // If a payment succeeded we update stored subscription status to "active"
         // in case it was previously "trialing" or "past_due".
         // We skip if amount due is 0 as that's the case at start of trial period.
         if (object.amount_due > 0) {
           await updateUserByCustomerId(object.customer, {
-            stripeSubscriptionStatus: "active",
+            stripeSubscriptionStatus: 'active',
           });
         }
 
         break;
 
-      case "invoice.payment_failed":
+      case 'invoice.payment_failed':
         // If a payment failed we update stored subscription status to "past_due"
         await updateUserByCustomerId(object.customer, {
-          stripeSubscriptionStatus: "past_due",
+          stripeSubscriptionStatus: 'past_due',
         });
 
         break;
 
-      case "customer.subscription.updated":
+      case 'customer.subscription.updated':
         await updateUserByCustomerId(object.customer, {
           stripePriceId: object.items.data[0].price.id,
           stripeSubscriptionStatus: object.status,
@@ -67,18 +65,18 @@ export default async (req, res) => {
         // or convince them to renew before their subscription is deleted at end of payment period.
         break;
 
-      case "customer.subscription.deleted":
+      case 'customer.subscription.deleted':
         // If a subscription was deleted update stored subscription status to "canceled".
         // Keep in mind this won't be called right away if "Cancel at end of billing period" is selected
         // in Billing Portal settings (https://dashboard.stripe.com/settings/billing/portal). Instead you'll
         // get a "customer.subscription.updated" event with a cancel_at_period_end value.
         await updateUserByCustomerId(object.customer, {
-          stripeSubscriptionStatus: "canceled",
+          stripeSubscriptionStatus: 'canceled',
         });
 
         break;
 
-      case "customer.subscription.trial_will_end":
+      case 'customer.subscription.trial_will_end':
         // This event happens 3 days before a trial ends
         // 💡 You could email user letting them know their trial will end or you can have Stripe do that
         // automatically 7 days in advance: https://dashboard.stripe.com/settings/billing/automatic
@@ -89,11 +87,11 @@ export default async (req, res) => {
     }
 
     // Send success response
-    res.send({ status: "success" });
+    res.send({ status: 'success' });
   } catch (error) {
-    console.log("stripe webhook error", error);
+    console.log('stripe webhook error', error);
 
     // Send error response
-    res.send({ status: "error", code: error.code, message: error.message });
+    res.send({ status: 'error', code: error.code, message: error.message });
   }
 };

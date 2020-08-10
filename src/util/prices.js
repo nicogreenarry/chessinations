@@ -13,7 +13,5 @@ export function getStripePriceId(planId) {
 // Get friendly plan ID ("basic", "premium", etc) by Stripe plan ID
 // Used in auth.js to include planId in the user object
 export function getFriendlyPlanId(stripePriceId) {
-  return Object.keys(stripePriceIds).find(
-    (key) => stripePriceIds[key] === stripePriceId
-  );
+  return Object.keys(stripePriceIds).find((key) => stripePriceIds[key] === stripePriceId);
 }

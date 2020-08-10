@@ -1,6 +1,6 @@
-import React from "react";
-import Section from "./Section";
-import Spinner from "react-bootstrap/Spinner";
+import React from 'react';
+import Section from './Section';
+import Spinner from 'react-bootstrap/Spinner';
 
 function PageLoader(props) {
   const { style, ...otherProps } = props;
@@ -10,7 +10,7 @@ function PageLoader(props) {
       bg="white"
       className="d-flex justify-content-center align-items-center"
       style={{
-        height: "400px",
+        height: '400px',
         ...style,
       }}
       {...otherProps}

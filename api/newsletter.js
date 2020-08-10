@@ -1,4 +1,4 @@
-const Mailchimp = require("mailchimp-api-v3");
+const Mailchimp = require('mailchimp-api-v3');
 
 const mailchimpClient = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
@@ -8,20 +8,20 @@ export default (req, res) => {
 
   return mailchimpClient
     .request({
-      method: "POST",
-      path: "/lists/" + audienceId + "/members",
+      method: 'POST',
+      path: '/lists/' + audienceId + '/members',
       body: {
         email_address: body.email,
         // Set status to "subscribed" to disable double-opt-in
-        status: "pending",
+        status: 'pending',
       },
     })
     .then((result) => {
-      res.send({ status: "success" });
+      res.send({ status: 'success' });
     })
     .catch((error) => {
-      console.log("newsletter error", error);
+      console.log('newsletter error', error);
 
-      res.send({ status: "error" });
+      res.send({ status: 'error' });
     });
 };

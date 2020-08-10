@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import FormAlert from "./FormAlert";
-import AuthForm from "./AuthForm";
-import AuthSocial from "./AuthSocial";
-import AuthFooter from "./AuthFooter";
-import { useRouter } from "./../util/router.js";
+import React, { useState } from 'react';
+import FormAlert from './FormAlert';
+import AuthForm from './AuthForm';
+import AuthSocial from './AuthSocial';
+import AuthFooter from './AuthFooter';
+import { useRouter } from './../util/router.js';
 
 function Auth(props) {
   const router = useRouter();
@@ -19,12 +19,7 @@ function Auth(props) {
 
   return (
     <>
-      {formAlert && (
-        <FormAlert
-          type={formAlert.type}
-          message={formAlert.message}
-        ></FormAlert>
-      )}
+      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message}></FormAlert>}
 
       <AuthForm
         type={props.type}
@@ -34,7 +29,7 @@ function Auth(props) {
         onFormAlert={handleFormAlert}
       ></AuthForm>
 
-      {["signup", "signin"].includes(props.type) && (
+      {['signup', 'signin'].includes(props.type) && (
         <>
           {props.providers && props.providers.length && (
             <>
@@ -48,7 +43,7 @@ function Auth(props) {
                 onAuth={handleAuth}
                 onError={(message) => {
                   handleFormAlert({
-                    type: "error",
+                    type: 'error',
                     message: message,
                   });
                 }}
@@ -56,10 +51,7 @@ function Auth(props) {
             </>
           )}
 
-          <AuthFooter
-            type={props.type}
-            typeValues={props.typeValues}
-          ></AuthFooter>
+          <AuthFooter type={props.type} typeValues={props.typeValues}></AuthFooter>
         </>
       )}
     </>

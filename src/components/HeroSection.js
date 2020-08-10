@@ -1,8 +1,8 @@
-import React from "react";
-import Section from "./Section";
-import Container from "react-bootstrap/Container";
-import SectionHeader from "./SectionHeader";
-import Button from "react-bootstrap/Button";
+import React from 'react';
+import Section from './Section';
+import Container from 'react-bootstrap/Container';
+import SectionHeader from './SectionHeader';
+import Button from 'react-bootstrap/Button';
 
 function HeroSection(props) {
   return (
@@ -20,11 +20,7 @@ function HeroSection(props) {
           size={1}
           spaced={true}
         ></SectionHeader>
-        <Button
-          variant={props.buttonColor}
-          size="lg"
-          onClick={props.buttonOnClick}
-        >
+        <Button variant={props.buttonColor} size="lg" onClick={props.buttonOnClick}>
           {props.buttonText}
         </Button>
       </Container>

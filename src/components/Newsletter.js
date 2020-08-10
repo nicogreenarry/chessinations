@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import FormField from "./FormField";
-import Button from "react-bootstrap/Button";
-import newsletter from "./../util/newsletter.js";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import FormField from './FormField';
+import Button from 'react-bootstrap/Button';
+import newsletter from './../util/newsletter.js';
+import { useForm } from 'react-hook-form';
 
 function Newsletter(props) {
   const [subscribed, setSubscribed] = useState(false);
@@ -32,16 +32,12 @@ function Newsletter(props) {
                 placeholder="Email"
                 error={errors.email}
                 inputRef={register({
-                  required: "Please enter an email address",
+                  required: 'Please enter an email address',
                 })}
               ></FormField>
             </Col>
             <Col xs="auto">
-              <Button
-                variant={props.buttonColor}
-                size={props.size}
-                type="submit"
-              >
+              <Button variant={props.buttonColor} size={props.size} type="submit">
                 {props.buttonText}
               </Button>
             </Col>

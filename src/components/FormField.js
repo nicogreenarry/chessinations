@@ -1,5 +1,5 @@
-import React from "react";
-import Form from "react-bootstrap/Form";
+import React from 'react';
+import Form from 'react-bootstrap/Form';
 
 function FormField(props) {
   const { error, type, inputRef, ...inputProps } = props;
@@ -9,8 +9,8 @@ function FormField(props) {
       {props.label && <Form.Label>{props.label}</Form.Label>}
 
       <Form.Control
-        as={type === "textarea" ? "textarea" : "input"}
-        type={type === "textarea" ? undefined : type}
+        as={type === 'textarea' ? 'textarea' : 'input'}
+        type={type === 'textarea' ? undefined : type}
         isInvalid={error ? true : undefined}
         ref={inputRef}
         {...inputProps}

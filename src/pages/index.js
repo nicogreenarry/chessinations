@@ -1,12 +1,12 @@
-import React from "react";
-import ChessboardSection from "./../components/ChessboardSection";
-import HeroSection from "./../components/HeroSection";
-import FeaturesSection from "./../components/FeaturesSection";
-import ClientsSection from "./../components/ClientsSection";
-import TestimonialsSection from "./../components/TestimonialsSection";
-import NewsletterSection from "./../components/NewsletterSection";
-import CtaSection from "./../components/CtaSection";
-import { useRouter } from "./../util/router.js";
+import React from 'react';
+import ChessboardSection from './../components/ChessboardSection';
+import HeroSection from './../components/HeroSection';
+import FeaturesSection from './../components/FeaturesSection';
+import ClientsSection from './../components/ClientsSection';
+import TestimonialsSection from './../components/TestimonialsSection';
+import NewsletterSection from './../components/NewsletterSection';
+import CtaSection from './../components/CtaSection';
+import { useRouter } from './../util/router.js';
 
 function IndexPage(props) {
   const router = useRouter();
@@ -25,7 +25,7 @@ function IndexPage(props) {
         buttonColor="light"
         buttonOnClick={() => {
           // Navigate to pricing page
-          router.push("/pricing");
+          router.push('/pricing');
         }}
       ></HeroSection>
       <ChessboardSection
@@ -89,7 +89,7 @@ function IndexPage(props) {
         buttonColor="light"
         buttonOnClick={() => {
           // Navigate to pricing page
-          router.push("/pricing");
+          router.push('/pricing');
         }}
       ></CtaSection>
     </>

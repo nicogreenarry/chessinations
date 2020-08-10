@@ -1,9 +1,9 @@
-import React from "react";
-import HeroSection2 from "./../components/HeroSection2";
-import StatsSection from "./../components/StatsSection";
-import TeamBiosSection from "./../components/TeamBiosSection";
-import CtaSection from "./../components/CtaSection";
-import { useRouter } from "./../util/router.js";
+import React from 'react';
+import HeroSection2 from './../components/HeroSection2';
+import StatsSection from './../components/StatsSection';
+import TeamBiosSection from './../components/TeamBiosSection';
+import CtaSection from './../components/CtaSection';
+import { useRouter } from './../util/router.js';
 
 function AboutPage(props) {
   const router = useRouter();
@@ -47,7 +47,7 @@ function AboutPage(props) {
         buttonColor="light"
         buttonOnClick={() => {
           // Navigate to pricing page
-          router.push("/pricing");
+          router.push('/pricing');
         }}
       ></CtaSection>
     </>

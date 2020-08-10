@@ -1,11 +1,11 @@
-import React from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import { LinkContainer } from "react-router-bootstrap";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Dropdown from "react-bootstrap/Dropdown";
-import { useAuth } from "./../util/auth.js";
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import { LinkContainer } from 'react-router-bootstrap';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { useAuth } from './../util/auth.js';
 
 function NavbarCustom(props) {
   const auth = useAuth();
@@ -15,19 +15,11 @@ function NavbarCustom(props) {
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>
-            <img
-              className="d-inline-block align-top"
-              src={props.logo}
-              alt="Logo"
-              height="30"
-            ></img>
+            <img className="d-inline-block align-top" src={props.logo} alt="Logo" height="30"></img>
           </Navbar.Brand>
         </LinkContainer>
 
-        <Navbar.Toggle
-          aria-controls="navbar-nav"
-          className="border-0"
-        ></Navbar.Toggle>
+        <Navbar.Toggle aria-controls="navbar-nav" className="border-0"></Navbar.Toggle>
         <Navbar.Collapse id="navbar-nav" className="justify-content-end">
           <Nav>
             {auth.user && (

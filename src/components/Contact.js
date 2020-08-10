@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import FormAlert from "./FormAlert";
-import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
-import FormField from "./FormField";
-import Button from "react-bootstrap/Button";
-import Spinner from "react-bootstrap/Spinner";
-import contact from "./../util/contact.js";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import FormAlert from './FormAlert';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import FormField from './FormField';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+import contact from './../util/contact.js';
+import { useForm } from 'react-hook-form';
 
 function Contact(props) {
   const [pending, setPending] = useState(false);
@@ -24,14 +24,14 @@ function Contact(props) {
         reset();
         // Show success alert message
         setFormAlert({
-          type: "success",
-          message: "Your message has been sent!",
+          type: 'success',
+          message: 'Your message has been sent!',
         });
       })
       .catch((error) => {
         // Show error alert message
         setFormAlert({
-          type: "error",
+          type: 'error',
           message: error.message,
         });
       })
@@ -43,12 +43,7 @@ function Contact(props) {
 
   return (
     <>
-      {formAlert && (
-        <FormAlert
-          type={formAlert.type}
-          message={formAlert.message}
-        ></FormAlert>
-      )}
+      {formAlert && <FormAlert type={formAlert.type} message={formAlert.message}></FormAlert>}
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Row>
@@ -61,18 +56,13 @@ function Contact(props) {
                 placeholder="Name"
                 error={errors.name}
                 inputRef={register({
-                  required: "Please enter your name",
+                  required: 'Please enter your name',
                 })}
               ></FormField>
             </Form.Group>
           )}
 
-          <Form.Group
-            as={Col}
-            xs={12}
-            sm={props.showNameField ? 6 : 12}
-            controlId="formEmail"
-          >
+          <Form.Group as={Col} xs={12} sm={props.showNameField ? 6 : 12} controlId="formEmail">
             <FormField
               size={props.inputSize}
               name="email"
@@ -80,7 +70,7 @@ function Contact(props) {
               placeholder="Email"
               error={errors.email}
               inputRef={register({
-                required: "Please enter your email",
+                required: 'Please enter your email',
               })}
             ></FormField>
           </Form.Group>
@@ -94,26 +84,15 @@ function Contact(props) {
             rows={5}
             error={errors.message}
             inputRef={register({
-              required: "Please enter a message",
+              required: 'Please enter a message',
             })}
           ></FormField>
         </Form.Group>
-        <Button
-          variant={props.buttonColor}
-          size={props.inputSize}
-          type="submit"
-          disabled={pending}
-        >
+        <Button variant={props.buttonColor} size={props.inputSize} type="submit" disabled={pending}>
           <span>{props.buttonText}</span>
 
           {pending && (
-            <Spinner
-              animation="border"
-              size="sm"
-              role="status"
-              aria-hidden={true}
-              className="ml-2"
-            >
+            <Spinner animation="border" size="sm" role="status" aria-hidden={true} className="ml-2">
               <span className="sr-only">Sending...</span>
             </Spinner>
           )}

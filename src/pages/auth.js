@@ -1,6 +1,6 @@
-import React from "react";
-import AuthSection from "./../components/AuthSection";
-import { useRouter } from "./../util/router.js";
+import React from 'react';
+import AuthSection from './../components/AuthSection';
+import { useRouter } from './../util/router.js';
 
 function AuthPage(props) {
   const router = useRouter();
@@ -14,7 +14,7 @@ function AuthPage(props) {
       bgImageOpacity={1}
       inputSize="lg"
       type={router.query.type}
-      afterAuthPath={router.query.next || "/dashboard"}
+      afterAuthPath={router.query.next || '/dashboard'}
     ></AuthSection>
   );
 }
