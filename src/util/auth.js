@@ -1,16 +1,10 @@
-import React, {
-  useState,
-  useEffect,
-  useMemo,
-  useContext,
-  createContext,
-} from "react";
-import queryString from "query-string";
-import firebase from "./firebase";
-import { useUser, createUser, updateUser } from "./db";
-import { history } from "./router";
-import PageLoader from "./../components/PageLoader";
-import { getFriendlyPlanId } from "./prices";
+import React, { useState, useEffect, useMemo, useContext, createContext } from 'react';
+import queryString from 'query-string';
+import firebase from './firebase';
+import { useUser, createUser, updateUser } from './db';
+import { history } from './router';
+import PageLoader from './../components/PageLoader';
+import { getFriendlyPlanId } from './prices';
 
 // Whether to merge user data from database into auth.user
 const MERGE_DB_USER = true;
@@ -55,17 +49,11 @@ function useProvideAuth() {
   };
 
   const signup = (email, password) => {
-    return firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(handleAuth);
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(handleAuth);
   };
 
   const signin = (email, password) => {
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(handleAuth);
+    return firebase.auth().signInWithEmailAndPassword(email, password).then(handleAuth);
   };
 
   const signinWithProvider = (name) => {
@@ -91,7 +79,7 @@ function useProvideAuth() {
 
   const confirmPasswordReset = (password, code) => {
     // Get code from query string object
-    const resetCode = code || getFromQueryString("oobCode");
+    const resetCode = code || getFromQueryString('oobCode');
 
     return firebase.auth().confirmPasswordReset(resetCode, password);
   };
@@ -172,7 +160,7 @@ export const requireAuth = (Component) => {
     useEffect(() => {
       // Redirect if not signed in
       if (auth.user === false) {
-        history.replace("/auth/signin");
+        history.replace('/auth/signin');
       }
     }, [auth]);
 
@@ -214,14 +202,14 @@ function usePrepareUser(user) {
     // If merging user data from database is enabled ...
     if (MERGE_DB_USER) {
       switch (userDbQuery.status) {
-        case "loading":
+        case 'loading':
           // Return null user so auth is considered loading until we have db data to merge
           return null;
-        case "error":
+        case 'error':
           // Log query error to console
           console.error(userDbQuery.error);
           return null;
-        case "success":
+        case 'success':
           // If user data doesn't exist we assume this means user just signed up and the createUser
           // function just hasn't completed. We return null to indicate a loading state.
           if (userDbQuery.data === null) return null;
@@ -238,9 +226,7 @@ function usePrepareUser(user) {
           }
 
           // Add planIsActive field and set to true if subscription status is "active" or "trialing"
-          finalUser.planIsActive = ["active", "trialing"].includes(
-            stripeSubscriptionStatus
-          );
+          finalUser.planIsActive = ['active', 'trialing'].includes(stripeSubscriptionStatus);
 
         // no default
       }
@@ -252,31 +238,31 @@ function usePrepareUser(user) {
 
 const allProviders = [
   {
-    id: "password",
-    name: "password",
+    id: 'password',
+    name: 'password',
   },
   {
-    id: "google.com",
-    name: "google",
+    id: 'google.com',
+    name: 'google',
     providerMethod: firebase.auth.GoogleAuthProvider,
   },
   {
-    id: "facebook.com",
-    name: "facebook",
+    id: 'facebook.com',
+    name: 'facebook',
     providerMethod: firebase.auth.FacebookAuthProvider,
     parameters: {
       // Tell fb to show popup size UI instead of full website
-      display: "popup",
+      display: 'popup',
     },
   },
   {
-    id: "twitter.com",
-    name: "twitter",
+    id: 'twitter.com',
+    name: 'twitter',
     providerMethod: firebase.auth.TwitterAuthProvider,
   },
   {
-    id: "github.com",
-    name: "github",
+    id: 'github.com',
+    name: 'github',
     providerMethod: firebase.auth.GithubAuthProvider,
   },
 ];

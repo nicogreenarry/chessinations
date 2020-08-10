@@ -1,7 +1,7 @@
-import React from "react";
-import Section from "./Section";
-import Container from "react-bootstrap/Container";
-import Stats from "./Stats";
+import React from 'react';
+import Section from './Section';
+import Container from 'react-bootstrap/Container';
+import Stats from './Stats';
 
 function StatsSection(props) {
   return (
@@ -16,20 +16,20 @@ function StatsSection(props) {
         <Stats
           items={[
             {
-              title: "Tweets",
-              stat: "3,456",
+              title: 'Tweets',
+              stat: '3,456',
             },
             {
-              title: "Following",
-              stat: "123",
+              title: 'Following',
+              stat: '123',
             },
             {
-              title: "Followers",
-              stat: "456k",
+              title: 'Followers',
+              stat: '456k',
             },
             {
-              title: "Likes",
-              stat: "789",
+              title: 'Likes',
+              stat: '789',
             },
           ]}
         ></Stats>

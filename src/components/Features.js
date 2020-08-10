@@ -1,9 +1,9 @@
-import React from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import AspectRatio from "./AspectRatio";
-import Image from "react-bootstrap/Image";
-import "./Features.scss";
+import React from 'react';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import AspectRatio from './AspectRatio';
+import Image from 'react-bootstrap/Image';
+import './Features.scss';
 
 function Features(props) {
   return (
@@ -13,10 +13,10 @@ function Features(props) {
           xs={12}
           lg={6}
           style={{
-            display: "flex",
-            alignItems: "stretch",
-            justifyContent: "center",
-            boxShadow: "1px 1px 0 0 #efefef",
+            display: 'flex',
+            alignItems: 'stretch',
+            justifyContent: 'center',
+            boxShadow: '1px 1px 0 0 #efefef',
           }}
           key={index}
         >

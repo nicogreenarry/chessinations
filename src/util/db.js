@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import firebase from "./firebase";
+import { useState, useEffect, useRef } from 'react';
+import firebase from './firebase';
 
 const firestore = firebase.firestore();
 
@@ -8,18 +8,18 @@ const firestore = firebase.firestore();
 // Fetch user data (hook)
 // This is called automatically by auth.js and merged into auth.user
 export function useUser(uid) {
-  return useQuery(uid && firestore.collection("users").doc(uid));
+  return useQuery(uid && firestore.collection('users').doc(uid));
 }
 
 // Update an existing user
 export function updateUser(uid, data) {
-  return firestore.collection("users").doc(uid).update(data);
+  return firestore.collection('users').doc(uid).update(data);
 }
 
 // Create a new user
 export function createUser(uid, data) {
   return firestore
-    .collection("users")
+    .collection('users')
     .doc(uid)
     .set({ uid, ...data }, { merge: true });
 }
@@ -29,24 +29,22 @@ export function createUser(uid, data) {
 
 // Fetch all items by owner (hook)
 export function useItemsByOwner(owner) {
-  return useQuery(
-    owner && firestore.collection("items").where("owner", "==", owner)
-  );
+  return useQuery(owner && firestore.collection('items').where('owner', '==', owner));
 }
 
 // Fetch item data
 export function useItem(id) {
-  return useQuery(id && firestore.collection("items").doc(id));
+  return useQuery(id && firestore.collection('items').doc(id));
 }
 
 // Update an item
 export function updateItem(id, data) {
-  return firestore.collection("items").doc(id).update(data);
+  return firestore.collection('items').doc(id).update(data);
 }
 
 // Create a new item
 export function createItem(data) {
-  return firestore.collection("items").add(data);
+  return firestore.collection('items').add(data);
 }
 
 /**** HELPERS ****/
@@ -54,7 +52,7 @@ export function createItem(data) {
 // Custom React hook that subscribes to a Firestore query
 function useQuery(query) {
   const initialState = {
-    status: "loading",
+    status: 'loading',
     data: undefined,
     error: null,
   };
@@ -72,19 +70,17 @@ function useQuery(query) {
       return queryCached.onSnapshot(
         (response) => {
           // Get data for collection or doc
-          const data = response.docs
-            ? getCollectionData(response)
-            : getDocData(response);
+          const data = response.docs ? getCollectionData(response) : getDocData(response);
 
           setState({
-            status: "success",
+            status: 'success',
             data: data,
             error: null,
           });
         },
         (error) => {
           setState((state) => ({
-            status: "error",
+            status: 'error',
             data: undefined,
             error: error,
           }));
@@ -119,8 +115,7 @@ function useQueryCache(query) {
   const previous = previousRef.current;
 
   // Determine if query object is equal to previous
-  const isEqual =
-    (!previous && !query) || (previous && query && previous.isEqual(query));
+  const isEqual = (!previous && !query) || (previous && query && previous.isEqual(query));
 
   // If not equal update previous to query (for next render)
   // and then return new query below.

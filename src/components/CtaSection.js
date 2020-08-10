@@ -1,10 +1,10 @@
-import React from "react";
-import Section from "./Section";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import SectionHeader from "./SectionHeader";
-import Button from "react-bootstrap/Button";
+import React from 'react';
+import Section from './Section';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import SectionHeader from './SectionHeader';
+import Button from 'react-bootstrap/Button';
 
 function CtaSection(props) {
   return (
@@ -27,11 +27,7 @@ function CtaSection(props) {
             ></SectionHeader>
           </Col>
           <Col xs={12} md="auto" className="py-3 px-4">
-            <Button
-              variant={props.buttonColor}
-              size="lg"
-              onClick={props.buttonOnClick}
-            >
+            <Button variant={props.buttonColor} size="lg" onClick={props.buttonOnClick}>
               {props.buttonText}
             </Button>
           </Col>

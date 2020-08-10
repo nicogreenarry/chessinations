@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import PageLoader from "./PageLoader";
-import { useAuth } from "./../util/auth.js";
-import { useRouter } from "./../util/router.js";
-import { redirectToBilling } from "./../util/stripe.js";
+import React, { useEffect } from 'react';
+import PageLoader from './PageLoader';
+import { useAuth } from './../util/auth.js';
+import { useRouter } from './../util/router.js';
+import { redirectToBilling } from './../util/stripe.js';
 
 function SettingsBilling(props) {
   const router = useRouter();
@@ -16,14 +16,14 @@ function SettingsBilling(props) {
     } else {
       // Otherwise go to pricing so they can
       // purchase a plan
-      router.push("/pricing");
+      router.push('/pricing');
     }
   }, [auth.user.planId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <PageLoader
       style={{
-        height: "50px",
+        height: '50px',
       }}
     ></PageLoader>
   );

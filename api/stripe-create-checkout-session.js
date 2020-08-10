@@ -1,6 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const requireAuth = require("./_require-auth.js");
-const { getUser, updateUser } = require("./_db.js");
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const requireAuth = require('./_require-auth.js');
+const { getUser, updateUser } = require('./_db.js');
 
 export default requireAuth(async (req, res) => {
   const body = req.body;
@@ -23,7 +23,7 @@ export default requireAuth(async (req, res) => {
     // Create a checkout session
     const session = await stripe.checkout.sessions.create({
       customer: stripeCustomerId,
-      payment_method_types: ["card"],
+      payment_method_types: ['card'],
       subscription_data: {
         // Use trial period set for this priceId (if there is one)
         trial_from_plan: true,
@@ -36,7 +36,7 @@ export default requireAuth(async (req, res) => {
           quantity: 1,
         },
       ],
-      mode: "subscription",
+      mode: 'subscription',
       // Uncomment to allow user to enter a promotional code
       //allow_promotion_codes: true,
       // Uncomment if you need address collection
@@ -47,11 +47,11 @@ export default requireAuth(async (req, res) => {
     });
 
     // Return success response
-    res.send({ status: "success", data: session });
+    res.send({ status: 'success', data: session });
   } catch (error) {
-    console.log("stripe-create-checkout-session error", error);
+    console.log('stripe-create-checkout-session error', error);
 
     // Return error response
-    res.send({ status: "error", code: error.code, message: error.message });
+    res.send({ status: 'error', code: error.code, message: error.message });
   }
 });

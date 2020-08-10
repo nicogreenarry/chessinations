@@ -1,12 +1,12 @@
-import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import { Link } from "./../util/router.js";
+import { Link } from './../util/router.js';
 
-import Section from "./Section";
-import "./Footer.scss";
+import Section from './Section';
+import './Footer.scss';
 
 function Footer(props) {
   return (
@@ -23,23 +23,15 @@ function Footer(props) {
           <Col xs={12} md={4}>
             <Link to="/">
               <div>
-                <img
-                  className="FooterComponent__logo"
-                  src={props.logo}
-                  alt="Logo"
-                ></img>
+                <img className="FooterComponent__logo" src={props.logo} alt="Logo"></img>
               </div>
             </Link>
 
             {props.description && (
-              <p className="FooterComponent__description">
-                {props.description}
-              </p>
+              <p className="FooterComponent__description">{props.description}</p>
             )}
 
-            {props.copyright && (
-              <p className="FooterComponent__copywrite">{props.copyright}</p>
-            )}
+            {props.copyright && <p className="FooterComponent__copywrite">{props.copyright}</p>}
           </Col>
           <Col xs={12} md={8} lg={{ span: 6, offset: 2 }}>
             <div className="FooterComponent__menus">
@@ -65,11 +57,7 @@ function Footer(props) {
                       <Link to="/contact">Contact</Link>
                     </li>
                     <li>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://medium.com"
-                      >
+                      <a target="_blank" rel="noopener noreferrer" href="https://medium.com">
                         Blog
                       </a>
                     </li>
@@ -79,11 +67,7 @@ function Footer(props) {
                   <h5>Social</h5>
                   <ul className="list-unstyled">
                     <li>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://facebook.com"
-                      >
+                      <a target="_blank" rel="noopener noreferrer" href="https://facebook.com">
                         <img
                           src="https://uploads.divjoy.com/icon-facebook.svg"
                           alt="Facebook"
@@ -92,11 +76,7 @@ function Footer(props) {
                       </a>
                     </li>
                     <li>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://instagram.com"
-                      >
+                      <a target="_blank" rel="noopener noreferrer" href="https://instagram.com">
                         <img
                           src="https://uploads.divjoy.com/icon-instagram.svg"
                           alt="Instagram"
@@ -105,15 +85,8 @@ function Footer(props) {
                       </a>
                     </li>
                     <li>
-                      <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://twitter.com"
-                      >
-                        <img
-                          src="https://uploads.divjoy.com/icon-twitter.svg"
-                          alt="Twitter"
-                        ></img>
+                      <a target="_blank" rel="noopener noreferrer" href="https://twitter.com">
+                        <img src="https://uploads.divjoy.com/icon-twitter.svg" alt="Twitter"></img>
                         Twitter
                       </a>
                     </li>

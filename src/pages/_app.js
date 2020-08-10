@@ -1,36 +1,31 @@
-import React from "react";
+import React from 'react';
 
-import logo from "../assets/images/logo/chessinations-logo.png"
-import logoLight from "../assets/images/logo/chessinations-logo-light.png"
-import "./../styles/global.scss";
-import NavbarCustom from "./../components/NavbarCustom";
-import { Switch, Route, Router } from "./../util/router.js";
-import Footer from "./../components/Footer";
-import "./../util/analytics.js";
-import { ProvideAuth } from "./../util/auth.js";
+import logo from '../assets/images/logo/chessinations-logo.png';
+import logoLight from '../assets/images/logo/chessinations-logo-light.png';
+import './../styles/global.scss';
+import NavbarCustom from './../components/NavbarCustom';
+import { Switch, Route, Router } from './../util/router.js';
+import Footer from './../components/Footer';
+import './../util/analytics.js';
+import { ProvideAuth } from './../util/auth.js';
 
-import IndexPage from "./index";
-import AboutPage from "./about";
-import FaqPage from "./faq";
-import PricingPage from "./pricing";
-import ContactPage from "./contact";
-import DashboardPage from "./dashboard";
-import SettingsPage from "./settings";
-import PurchasePage from "./purchase";
-import AuthPage from "./auth";
-import NotFoundPage from "./not-found.js";
+import IndexPage from './index';
+import AboutPage from './about';
+import FaqPage from './faq';
+import PricingPage from './pricing';
+import ContactPage from './contact';
+import DashboardPage from './dashboard';
+import SettingsPage from './settings';
+import PurchasePage from './purchase';
+import AuthPage from './auth';
+import NotFoundPage from './not-found.js';
 
 function App(props) {
   return (
     <ProvideAuth>
       <Router>
         <>
-          <NavbarCustom
-            bg="primary"
-            variant="dark"
-            expand="md"
-            logo={logoLight}
-          ></NavbarCustom>
+          <NavbarCustom bg="primary" variant="dark" expand="md" logo={logoLight}></NavbarCustom>
 
           <Switch>
             <Route exact path="/" component={IndexPage} />

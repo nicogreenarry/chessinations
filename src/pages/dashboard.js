@@ -1,5 +1,5 @@
 // import React from "react";
-import { requireAuth } from "./../util/auth.js";
+import { requireAuth } from './../util/auth.js';
 
 function DashboardPage(props) {
   return null;

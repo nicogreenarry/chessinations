@@ -1,6 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const requireAuth = require("./_require-auth.js");
-const { getUser } = require("./_db.js");
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const requireAuth = require('./_require-auth.js');
+const { getUser } = require('./_db.js');
 
 export default requireAuth(async (req, res) => {
   const user = req.user;
@@ -15,11 +15,11 @@ export default requireAuth(async (req, res) => {
     });
 
     // Return success response
-    res.send({ status: "success", data: session });
+    res.send({ status: 'success', data: session });
   } catch (error) {
-    console.log("stripe-create-billing-session error", error);
+    console.log('stripe-create-billing-session error', error);
 
     // Return error response
-    res.send({ status: "error", code: error.code, message: error.message });
+    res.send({ status: 'error', code: error.code, message: error.message });
   }
 });
