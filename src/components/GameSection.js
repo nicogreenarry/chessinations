@@ -5,7 +5,7 @@ import Game from './Game';
 import Section from './Section';
 import SectionHeader from './SectionHeader';
 
-function ChessboardSection(props) {
+function GameSection(props) {
   return (
     <Section
       bg={props.bg}
@@ -27,4 +27,4 @@ function ChessboardSection(props) {
   );
 }
 
-export default ChessboardSection;
+export default GameSection;
