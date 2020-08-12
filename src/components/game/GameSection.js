@@ -1,11 +1,11 @@
-import Chessboard from 'chessboardjsx';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
-import Section from './Section';
-import SectionHeader from './SectionHeader';
+import Game from './Game';
+import Section from '../Section';
+import SectionHeader from '../SectionHeader';
 
-function HeroSection(props) {
+function GameSection(props) {
   return (
     <Section
       bg={props.bg}
@@ -21,10 +21,10 @@ function HeroSection(props) {
           size={1}
           spaced={true}
         ></SectionHeader>
-        <Chessboard position="start" />
+        <Game />
       </Container>
     </Section>
   );
 }
 
-export default HeroSection;
+export default GameSection;
