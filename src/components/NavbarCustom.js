@@ -7,6 +7,8 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from './../util/auth.js';
 
+const showSignin = false;
+
 function NavbarCustom(props) {
   const auth = useAuth();
 
@@ -19,44 +21,48 @@ function NavbarCustom(props) {
           </Navbar.Brand>
         </LinkContainer>
 
-        <Navbar.Toggle aria-controls="navbar-nav" className="border-0"></Navbar.Toggle>
-        <Navbar.Collapse id="navbar-nav" className="justify-content-end">
-          <Nav>
-            {auth.user && (
-              <NavDropdown id="dropdown" title="Account" alignRight={true}>
-                <LinkContainer to="/dashboard">
-                  <NavDropdown.Item active={false}>Dashboard</NavDropdown.Item>
-                </LinkContainer>
+        {showSignin && (
+          <>
+            <Navbar.Toggle aria-controls="navbar-nav" className="border-0"></Navbar.Toggle>
+            <Navbar.Collapse id="navbar-nav" className="justify-content-end">
+              <Nav>
+                {auth.user && (
+                  <NavDropdown id="dropdown" title="Account" alignRight={true}>
+                    <LinkContainer to="/dashboard">
+                      <NavDropdown.Item active={false}>Dashboard</NavDropdown.Item>
+                    </LinkContainer>
 
-                <LinkContainer to="/settings/general">
-                  <NavDropdown.Item active={false}>Settings</NavDropdown.Item>
-                </LinkContainer>
+                    <LinkContainer to="/settings/general">
+                      <NavDropdown.Item active={false}>Settings</NavDropdown.Item>
+                    </LinkContainer>
 
-                <Dropdown.Divider></Dropdown.Divider>
+                    <Dropdown.Divider></Dropdown.Divider>
 
-                <LinkContainer to="/auth/signout">
-                  <NavDropdown.Item
-                    active={false}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      auth.signout();
-                    }}
-                  >
-                    Sign out
-                  </NavDropdown.Item>
-                </LinkContainer>
-              </NavDropdown>
-            )}
+                    <LinkContainer to="/auth/signout">
+                      <NavDropdown.Item
+                        active={false}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          auth.signout();
+                        }}
+                      >
+                        Sign out
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                  </NavDropdown>
+                )}
 
-            {!auth.user && (
-              <Nav.Item>
-                <LinkContainer to="/auth/signin">
-                  <Nav.Link active={false}>Sign in</Nav.Link>
-                </LinkContainer>
-              </Nav.Item>
-            )}
-          </Nav>
-        </Navbar.Collapse>
+                {!auth.user && (
+                  <Nav.Item>
+                    <LinkContainer to="/auth/signin">
+                      <Nav.Link active={false}>Sign in</Nav.Link>
+                    </LinkContainer>
+                  </Nav.Item>
+                )}
+              </Nav>
+            </Navbar.Collapse>
+          </>
+        )}
       </Container>
     </Navbar>
   );
