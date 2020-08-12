@@ -1,14 +1,14 @@
-import { loadStripe } from '@stripe/stripe-js';
+// import { loadStripe } from '@stripe/stripe-js';
 import { apiRequest } from './util';
 import { getStripePriceId } from './prices';
 
 let stripe;
 // Load the Stripe script
-loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY).then((stripeInstance) => {
-  // Set stripe so all functions below have it in scope
-  stripe = stripeInstance;
-  return stripe;
-});
+// loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY).then((stripeInstance) => {
+//   // Set stripe so all functions below have it in scope
+//   stripe = stripeInstance;
+//   return stripe;
+// });
 
 export async function redirectToCheckout(planId) {
   // Create a checkout session
