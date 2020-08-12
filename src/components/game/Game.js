@@ -20,7 +20,9 @@ export default function Game2() {
     });
 
     // illegal move
-    if (move === null) return;
+    if (move === null) {
+      return;
+    }
 
     setFen(game.fen());
   }
@@ -35,7 +37,9 @@ export default function Game2() {
     });
 
     // illegal move
-    if (move === null) return;
+    if (move === null) {
+      return;
+    }
 
     setFen(game.fen());
     setPieceSquare('');
